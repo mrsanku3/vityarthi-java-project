@@ -1,44 +1,59 @@
-\# Academic Resource \& Task Management System
+# Academic Resource & Task Management System
 
+A modular Command-Line Interface (CLI) application developed in Java to streamline student deadlines, user authentication, and academic resource indexing.
 
+---
 
-A simple, modular Java console application created for managing academic user accounts, assigning deadlines/tasks, and indexing study resources.
+## 1. Project Overview
 
+The Academic Resource & Task Management System is a lightweight Java console application designed for students and educators. It eliminates external database dependencies by utilizing a local CSV-based persistence layer, making it portable and simple to deploy on any system supporting Java SE.
 
+---
 
-\## Features
+## 2. System Features
 
+* **User Authentication System**
+  * Registration and login workflows for Students and Faculty members.
+  * Input validation and custom exception handling for authentication and data errors.
 
+* **Task & Assignment Manager**
+  * Assign personal tasks linked directly to unique User IDs.
+  * Set deadline dates, track assigned tasks, and update completion statuses.
 
-\- \*\*User Authentication\*\*: Account registration and login system with custom exception handling.
+* **Central Resource Directory**
+  * Share and index study materials, reference links, and reading lists by topic category.
+  * System-wide directory accessible to all authenticated users.
 
-\- \*\*Task Management\*\*: Create tasks, set deadlines, mark progress, and filter tasks by user ID.
+* **Persistent File Storage**
+  * Flat-file stream handler for serializing model objects directly to local CSV files.
+  * Automatic directory and data file creation on application launch.
 
-\- \*\*Resource Indexing\*\*: Share academic links and study resources grouped by topic categories.
+---
 
-\- \*\*Persistent Data\*\*: Local storage using custom CSV file operations (no external DB setup required).
+## 3. Project Directory Structure
 
-
-
-\## Technical Requirements
-
-
-
-\- Java Development Kit (JDK 8 or higher)
-
-\- Command Line / Terminal Interface
-
-
-
-\## Setup \& Running Instructions
-
-
-
-1\. \*\*Clone the Repository\*\*
-
-&#x20;  ```bash
-
-&#x20;  git clone \[https://github.com/mrsank3/vityarthi-java-project.git](https://github.com/mrsanku3/vityarthi-java-project.git)
-
-&#x20;  cd vityarthi-java-project
-
+```text
+vityarthi-java-project/
+├── README.md                   # System documentation and usage guide
+├── statement.md                # Problem statement and project scope
+├── data/                       # Local file persistence (.csv)
+│   ├── users.csv
+│   ├── tasks.csv
+│   └── resources.csv
+└── src/                        # Source code root
+    └── com/vityarthi/
+        ├── Main.java           # Main application controller
+        ├── exception/          # Custom exception handlers
+        │   ├── InvalidDataException.java
+        │   └── UserNotFoundException.java
+        ├── model/              # Object data models
+        │   ├── User.java
+        │   ├── Task.java
+        │   └── Resource.java
+        ├── service/            # Core business modules
+        │   ├── AuthManager.java
+        │   ├── TaskManager.java
+        │   └── ResourceManager.java
+        └── util/               # File operations and validation utilities
+            ├── DataHandler.java
+            └── ValidationUtils.java
